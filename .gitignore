@@ -1,0 +1,23 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Runtime files
+tmp/
+
+# Local tools
+.codex
+AGENTS.override.md
+.zcodeignore
+.zcode/
+
+/docs/internal/
+
+# Developer personal artifacts
+*erlock*
+
+# 软链接
+push_all.sh
