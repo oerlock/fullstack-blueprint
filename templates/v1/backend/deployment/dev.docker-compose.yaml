@@ -1,0 +1,44 @@
+networks:
+  app:
+    driver: bridge
+
+services:
+  redis:
+    image: redis:8.2-bookworm
+    container_name: app_redis
+    ports:
+      - "6382:6379"  # 按需更新端口映射
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+    volumes:
+      - ../data_persistent/redis/data:/data
+      - ../data_persistent/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+    networks:
+      - app
+
+  mysql:
+    image: mysql:8.4
+    container_name: app_mysql
+    ports:
+      - "3307:3306" # 按需更新端口映射
+    env_file:
+      - ../.env.d/mysql.env  # 可复制 example.env.d/mysql.env
+    volumes:
+      - ../data_persistent/mysql/data:/var/lib/mysql
+      - ../.support/mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf:ro  # 可复制 example.support/mysql/conf/my.cnf
+      - ../.support/mysql/init:/docker-entrypoint-initdb.d:ro  # 可复制 example.support/mysql/init
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p$${MYSQL_ROOT_PASSWORD}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - app

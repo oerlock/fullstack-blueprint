@@ -1,0 +1,6 @@
+pytest         # 主测试框架，用于运行测试用例
+pytest-asyncio # 支持异步测试的 pytest 插件
+syrupy         # 快照测试工具，用于验证数据一致性，代码覆盖率插件，基于 coverage.py 统计测试代码的覆盖率，生成报告，以便分析测试的充分性
+pytest-cov     # 代码覆盖率插件，基于 coverage.py 统计测试代码的覆盖率，生成报告，以便分析测试的充分性
+freezegun  # 专门用来“冻结”时间的库
+ruff  # 静态代码检查、自动修复问题、代码格式化、import 排序、现代 Python 语法升级
