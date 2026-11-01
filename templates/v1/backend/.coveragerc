@@ -1,0 +1,24 @@
+[run]
+# 开启分支覆盖率（不仅统计行是否执行，还统计 if/else 等分支）
+branch = True
+
+# 忽略统计的文件/目录
+omit =
+    tests/*            # 测试代码本身不统计覆盖率
+    */__init__.py      # 包初始化文件通常没有实际逻辑
+    */migrations/*     # 数据库迁移文件（自动生成）
+
+
+[report]
+# 覆盖率报告中忽略的代码
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    if TYPE_CHECKING:              # typing-only 代码
+    @abstractmethod                # 抽象方法
+# 覆盖率精度
+precision = 2
+
+# 覆盖率不足时返回失败（CI 常用）
+fail_under = 80
