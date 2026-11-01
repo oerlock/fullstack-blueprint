@@ -1,0 +1,15 @@
+fastapi[standard-no-fastapi-cloud-cli]
+pydantic-settings
+pyyaml
+typer
+redis
+pyjwt
+cryptography
+taskiq
+taskiq-redis
+jsonschema
+jinja2
+langchain-openai
+sqlmodel[asyncio]        # 数据模型定义，基于 SQLAlchemy + Pydantic
+alembic        # 数据库结构迁移管理
+asyncmy

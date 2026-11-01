@@ -1,0 +1,79 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Environment files
+.env
+.env.*
+*.env
+!.env.example
+!.env.*.example
+.env.d/
+.support/
+!.example.env.d/
+!.example.env.d/**
+!.example.support/
+!.example.support/**
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+.tox/
+.nox/
+
+# Type checking / lint caches
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Runtime files
+*.log
+*.pid
+*.pid.lock
+*.sock
+tmp/
+.cache/
+celerybeat-schedule
+
+# Local data
+*.db
+*.sqlite3
+instance/
+data_persistent/
+
+# Docs / notebooks
+docs/_build/
+docs/internal/
+.ipynb_checkpoints/
+
+# Local tools
+.codex
+AGENTS.override.md
+.zcodeignore
+
+src/backend/config/log/logging.override.yaml

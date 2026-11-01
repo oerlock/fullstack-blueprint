@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Runtime files
+tmp/
+
+# Local tools
+.codex
+AGENTS.override.md
+.zcodeignore
+
+# Internal docs
+/docs/internal/

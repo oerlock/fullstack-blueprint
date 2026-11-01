@@ -1,0 +1,61 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "FastAPI backend service"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.20.1",
+    "asyncmy>=0.2.17",
+    "cryptography>=50.0.2",
+    "fastapi[standard-no-fastapi-cloud-cli]>=0.162.0",
+    "jinja2>=3.1.6",
+    "jsonschema>=4.26.0",
+    "langchain-openai>=1.7.3",
+    "pydantic-settings>=2.16.2",
+    "pyjwt>=2.15.1",
+    "pyyaml>=6.0.3",
+    "redis>=8.1.0",
+    "sqlmodel[asyncio]>=0.0.48",
+    "taskiq>=0.13.0",
+    "taskiq-redis>=1.2.4",
+    "typer>=0.27.3",
+]
+
+[dependency-groups]
+dev = [
+    "freezegun>=1.5.5",
+    "pylint>=3.3.0",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.3",
+    "syrupy>=6.1.1",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # 基础代码规范检查
+    "F",   # 检查未使用的导入、未定义变量等问题
+    "I",   # 导入语句排序
+    "UP",  # 将代码更新为现代 Python 语法
+    "B",   # 检查潜在错误和不良编程习惯
+    "C4",  # 优化列表、字典和集合推导式
+    "SIM", # 简化代码结构
+    "RUF", # Ruff 专属规则
+]
+ignore = [
+    "RUF001", # 允许字符串中使用全角标点
+    "RUF002", # 允许文档注释中使用全角标点
+    "RUF003", # 允许代码注释中使用全角标点
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backend"]
+
+[tool.uv]
+package = true
